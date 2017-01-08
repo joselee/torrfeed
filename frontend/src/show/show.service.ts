@@ -26,7 +26,7 @@ export class ShowService {
 
     deleteShow(show: Show) {
         return this.http
-            .post('/api/deleteshow', { id: show._id })
+            .post('/api/deleteshow', { id: show['_id'] })
             .catch(this.handleError);
     }
 

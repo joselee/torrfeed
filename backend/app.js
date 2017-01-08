@@ -52,11 +52,9 @@ setInterval(() => {
 }, 600000); // fetch every 10 minutes
 
 app.get('/api/episodes', (req, res) => {
-    showsCollection.find().then((shows) => {
-        airedCollection.find().then((episodes) => {
-            res.json(episodes);
-        });
-    })
+    airedCollection.find({ archived: false }).then((episodes) => {
+        res.json(episodes);
+    });
 });
 
 app.get('/api/shows', (req, res) => {
@@ -97,8 +95,9 @@ app.post('/api/deleteshow', (req, res) => {
         return;
     }
 
-    showsCollection.remove({ _id: req.body.id }).then(() => {
-        airedCollection.remove({ 'show._id': req.body.id }).then(() => {
+    const id = monk.id(req.body.id);
+    showsCollection.remove({ '_id': id }).then(() => {
+        airedCollection.update({ 'show._id': id }, { $set: { archived: true } }, { multi: true }).then(() => {
             res.send('Show removed, all episode data removed.');
         });
     });
@@ -110,7 +109,8 @@ app.post('/api/archiveepisode', (req, res) => {
         return;
     }
 
-    airedCollection.findOneAndUpdate({ _id: req.body.id }, { archived: true }).then((ep) => {
+    const id = monk.id(req.body.id);
+    airedCollection.findOneAndUpdate({ _id: id }, { $set: { archived: true } }).then((ep) => {
         if (ep) {
             res.send('Episode archived.');
         } else {

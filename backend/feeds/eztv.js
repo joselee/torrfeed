@@ -12,6 +12,7 @@ let parser = (episodeData, show) => {
         filename: episodeData['torrent:fileName'],
         magnet: episodeData['torrent:magnetURI'],
         peerInfo: peerInfo,
+        archived: false,
         show: show
     };
 };

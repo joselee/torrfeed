@@ -13,6 +13,7 @@ let parser = (episodeData, show) => {
         filename: episodeData.title,
         magnet: null,
         peerInfo: peerInfo,
+        archived: false,
         show: show
     };
 };
