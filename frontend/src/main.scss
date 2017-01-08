@@ -1,0 +1,12 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'book/book';
+@import 'author/author';
+body {
+    font-family: "Helvetica Neue",sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    padding-top: 40px;
+}
