@@ -27,6 +27,12 @@ export class EpisodeService {
             .catch(this.handleError);
     }
 
+    archiveEpisode(episode: Episode) {
+        return this.http
+            .post('/api/archiveepisode', { id: episode['_id'] })
+            .catch(this.handleError);
+    }
+
     handleError(error: Response) {
         console.error(error);
         return Observable.throw(`Error status code ${error.status} at ${error.url}`);

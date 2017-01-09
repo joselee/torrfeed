@@ -1,17 +1,12 @@
-import { InLeftOutLeft } from '../animations';
+import { FadeInOut } from '../animations';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Show, ShowService } from './show.service';
 
 @Component({
     selector: 'show-list',
-    templateUrl: 'show-list.component.html',
-    animations: [InLeftOutLeft]
+    templateUrl: 'show-list.component.html'
 })
 export class ShowListComponent implements OnInit {
-    @HostBinding('@routeAnimation') routeAnimation = true;
-    @HostBinding('style.display') display = 'block';
-    @HostBinding('style.position') position = 'absolute';
-
     shows: Show[];
     newShow: string;
     constructor(private showService: ShowService) { }
@@ -26,7 +21,10 @@ export class ShowListComponent implements OnInit {
 
     addNewShow(e: KeyboardEvent) {
         if (e.keyCode === 13 && this.newShow) {
-            this.showService.addShow(this.newShow).subscribe(() => this.getShows());
+            this.showService.addShow(this.newShow).subscribe(() => {
+                this.getShows();
+                this.newShow = '';
+            });
         }
     }
 

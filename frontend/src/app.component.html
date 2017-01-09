@@ -1,14 +1,12 @@
-<nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="/">TORRfeed</a>
-    <ul class="nav navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active">episodes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/shows" routerLinkActive="active">shows</a>
-        </li>
-    </ul>
-</nav>
+<div class="title-bar">
+    <div class="container">
+        <div class="main-title-container">
+            <a class="main-title h1" routerLink="/">TorrFeed</a>
+        </div>
+        <a class="navigation-link" routerLink="/" routerLinkActive="active">Episodes</a>
+        <a class="navigation-link" routerLink="/shows" routerLinkActive="active">Shows</a>
+    </div>
+</div>
 <div class="container">
     <router-outlet></router-outlet>
 </div>

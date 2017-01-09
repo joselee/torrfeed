@@ -2,11 +2,14 @@
     <input type="text"
            class="form-control"
            [(ngModel)]="newShow"
-           (keyup)="addNewShow($event)">
+           (keyup)="addNewShow($event)"
+           placeholder="Add a new show">
 </div>
 <div class="show-list">
     <div class="show-list-item" *ngFor="let show of shows">
-        {{show.name}}
-        <button class="btn" (click)="deleteShow(show)">delete show</button>
+        <div class="show-name">{{show.name}}</div>
+        <button class="btn remove-button" (click)="deleteShow(show)">
+            <i class="fa fa-trash-o"></i>
+        </button>
     </div>
 </div>

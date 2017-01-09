@@ -1,5 +1,5 @@
-### TORRfeed frontend
-Frontend singlepage app for TORRfeed. Frontend is dependent on a running backend to serve up all necessary static files, and for the data api calls.
+### TorrFeed frontend
+Frontend singlepage app for TorrFeed. Frontend is dependent on a running backend to serve up all necessary static files, and for the data api calls.
 
 #### Prerequisites
 * node, npm

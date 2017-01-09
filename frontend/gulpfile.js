@@ -12,7 +12,7 @@ const sass = require('gulp-sass');
 
 /* --- Production build tasks --- */
 gulp.task('prod', ['build'], () => {
-    return gulp.start(['prod-index', 'prod-css', 'prod-js', 'prod-api']);
+    return gulp.start(['prod-js', 'prod-css', 'prod-fonts', 'prod-index']);
 });
 gulp.task('prod-js', () => {
     return builder.buildStatic('./build/main.js', './dist/app.js', { minify: true });
@@ -21,19 +21,19 @@ gulp.task('prod-css', () => {
     return gulp.src('./build/app.css')
         .pipe(gulp.dest('./dist'));
 });
+gulp.task('prod-fonts', () => {
+    return gulp.src('./build/fonts/*')
+        .pipe(gulp.dest('./dist/fonts'));
+});
 gulp.task('prod-index', () => {
     return gulp.src('./index.html')
         .pipe(htmlreplace({ js: './app.js', css: './app.css' }))
         .pipe(gulp.dest('./dist'));
 });
-gulp.task('prod-api', () => {
-    return gulp.src('./api/*.*')
-        .pipe(gulp.dest('./dist/api'));
-});
 
 
 /* --- Core build tasks --- */
-gulp.task('build', ['ts', 'sass']);
+gulp.task('build', ['ts', 'sass', 'fonts']);
 gulp.task('clean', () => {
     return gulp.src(['./build', './dist'], { read: false })
         .pipe(clean());
@@ -51,6 +51,10 @@ gulp.task('sass', () => {
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(concat('./app.css'))
         .pipe(gulp.dest('./build'));
+});
+gulp.task('fonts', () => {
+    return gulp.src('./node_modules/font-awesome/fonts/*')
+        .pipe(gulp.dest('./build/fonts'));
 });
 
 

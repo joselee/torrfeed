@@ -1,6 +1,0 @@
-<div class="book-list">
-    <a class="book-list-item" *ngFor="let book of books" routerLink="/books/{{book.id}}">
-        <div class="book-cover-image" [style.background-image]="'url('+book.imageUrl+')'"></div>
-        <div class="book-title">{{book.title}}</div>
-    </a>
-</div>
