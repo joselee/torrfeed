@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
 import { EpisodeListComponent } from './episode/episode-list.component';
 import { EpisodeService } from './episode/episode.service';
 import { ShowListComponent } from './show/show-list.component';
@@ -13,12 +14,16 @@ import { ShowService } from './show/show.service';
 
 const appRoutes: Routes = [
     {
+        path: 'episodes',
+        component: EpisodeListComponent
+    },
+    {
         path: 'shows',
         component: ShowListComponent
     },
     {
         path: '',
-        component: EpisodeListComponent,
+        redirectTo: 'episodes',
         pathMatch: 'full'
     },
     {
@@ -37,6 +42,7 @@ const appRoutes: Routes = [
     ],
     declarations: [
         AppComponent,
+        MenuComponent,
         EpisodeListComponent,
         ShowListComponent
     ],

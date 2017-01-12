@@ -1,0 +1,60 @@
+top-menu {
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+}
+.top-menu {
+    background-color: white;
+
+    .container {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.main-title {
+    display: block;
+    flex: 1;
+    margin: 0;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    font-size: 3.5em;
+    color: rgba(0, 0, 0, 0.25);
+    &:hover, &:active, &:focus {
+        color: rgba(0, 0, 0, 0.33);
+        text-decoration: none;
+    }
+
+    .title-emphasis {
+        font-weight: 600;
+        color: $accent-color;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 2.5em;
+    }
+}
+
+.navigation-link {
+    display: inline-block;
+    padding: 10px 15px;
+    font-weight: lighter;
+
+    &.active {
+        border-bottom: solid 2px $accent-color;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 400px) {
+    .top-menu .container {
+        flex-wrap: wrap;
+    }
+    .main-title, .navigation-links-container {
+        width: 100%;
+        text-align: center;
+    }
+}

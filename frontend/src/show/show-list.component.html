@@ -6,8 +6,8 @@
            placeholder="Add a new show">
 </div>
 <div class="show-list">
-    <div class="show-list-item" *ngFor="let show of shows">
-        <div class="show-name">{{show.name}}</div>
+    <div class="show-list-item list-item-card" *ngFor="let show of shows">
+        <div class="list-item-title">{{show.name}}</div>
         <button class="btn remove-button" (click)="deleteShow(show)">
             <i class="fa fa-trash-o"></i>
         </button>
