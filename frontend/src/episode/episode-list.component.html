@@ -2,7 +2,9 @@
     <div class="episode-list-item" *ngFor="let episode of episodes">
         <span class="episode-date">{{getFormattedDate(episode.date)}}</span>
         <div class="list-item-card">
-            <div class="list-item-title">{{episode.title}}</div>
+            <div class="list-item-title">
+                <a [href]="episode.directLink">{{episode.title}}</a>
+            </div>
             <button class="remove-button" (click)="archiveEpisode(episode)">
                 <i class="fa fa-remove"></i>
             </button>

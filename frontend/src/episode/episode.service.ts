@@ -2,6 +2,7 @@ import { Show } from '../show/show.service';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import * as _ from 'lodash';
 
 export class Episode {
     '_id': string;
@@ -24,9 +25,10 @@ export class EpisodeService {
         return this.http
             .get('/api/episodes')
             .map((response: Response) => {
-                let episodes: Episode[] = <Episode[]>response.json();
+                let episodes = <Episode[]>response.json();
                 episodes.forEach((e) => e.date = new Date(e.date));
-                return episodes
+                episodes = _.sortBy(episodes, (e) => -e.date);
+                return episodes;
             })
             .catch(this.handleError);
     }

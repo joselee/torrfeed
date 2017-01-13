@@ -15,13 +15,13 @@ app.use(express.static(frontendPath));
 app.use('/fonts', express.static(frontendPath + 'build/fonts'));
 
 app.get('/api/episodes', (req, res) => {
-    db.episodesCollection.find({ archived: false }, { sort: { date: 1 } }).then((episodes) => {
+    db.episodesCollection.find({ archived: false }).then((episodes) => {
         res.json(episodes);
     });
 });
 
 app.get('/api/shows', (req, res) => {
-    db.showsCollection.find({}, { sort: { name: 1 } }).then((shows) => {
+    db.showsCollection.find().then((shows) => {
         res.json(shows);
     })
 });

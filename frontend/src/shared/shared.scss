@@ -12,7 +12,7 @@ button, input, optgroup, select, textarea {
 a {
     color: $black;
     text-decoration: none !important;
-    transition: color 0.25s ease-in-out;
+    transition: color 0.20s ease-in-out;
 
     &:hover, &:active {
         color: $accent-color;

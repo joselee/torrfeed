@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import * as _ from 'lodash';
 
 export class Show {
     '_id': string;
@@ -14,7 +15,11 @@ export class ShowService {
     getShows() {
         return this.http
             .get('/api/shows')
-            .map((response: Response) => <Show[]>response.json())
+            .map((response: Response) => {
+                let shows = <Show[]>response.json();
+                shows = _.sortBy(shows, (s) => s.name);
+                return shows;
+            })
             .catch(this.handleError);
     }
 

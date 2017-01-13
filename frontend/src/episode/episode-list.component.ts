@@ -18,7 +18,9 @@ export class EpisodeListComponent implements OnInit {
     }
 
     getEpisodes() {
-        this.episodeService.getEpisodes().subscribe(episodes => this.episodes = episodes);
+        this.episodeService.getEpisodes().subscribe(episodes => {
+            this.episodes = episodes;
+        });
     }
 
     archiveEpisode(episode: Episode) {
