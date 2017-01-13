@@ -23,10 +23,6 @@ top-menu {
     font-weight: 300;
     font-size: 40px;
     color: $gray-light;
-    &:hover, &:active, &:focus {
-        color: $accent-color;
-        text-decoration: none;
-    }
 
     .title-emphasis {
         font-weight: 600;
@@ -35,6 +31,13 @@ top-menu {
 
     @media (max-width: 600px) {
         font-size: 30px;
+    }
+}
+
+.top-menu .main-title {
+    &:hover, &:active, &:focus {
+        color: $accent-color;
+        text-decoration: none;
     }
 }
 
