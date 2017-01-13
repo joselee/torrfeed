@@ -1,3 +1,4 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -5,14 +6,17 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
+// Services
+import { DatePipe } from '@angular/common';
+import { EpisodeService } from './episode/episode.service';
+import { ShowService } from './show/show.service';
+import { DateHelperService } from './shared/date-helper.service';
+
+// Components
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { EpisodeListComponent } from './episode/episode-list.component';
-import { EpisodeService } from './episode/episode.service';
 import { ShowListComponent } from './show/show-list.component';
-import { ShowService } from './show/show.service';
-import { DateHelperService } from './shared/date-helper.service';
-import { DatePipe } from '@angular/common';
 
 const appRoutes: Routes = [
     {

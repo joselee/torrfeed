@@ -39,6 +39,14 @@ episode-list {
     }
 }
 
+.episode-show-name {
+    display: inline-block;
+    margin: 3px 0 10px 0;
+    font-size: 13px;
+    font-weight: lighter;
+    color: #999;
+}
+
 .episode-date {
     position: relative;
     width: 65px;
@@ -50,4 +58,8 @@ episode-list {
     text-align: center;
     text-transform: uppercase;
     z-index: 1;
+}
+
+.episode-magnet-link {
+    margin-left: 10px;
 }

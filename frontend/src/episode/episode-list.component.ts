@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Episode, EpisodeService } from './episode.service';
 import { DateHelperService } from '../shared/date-helper.service';
@@ -10,8 +11,9 @@ import { DateHelperService } from '../shared/date-helper.service';
 export class EpisodeListComponent implements OnInit {
     episodes: Episode[];
     constructor(private episodeService: EpisodeService,
-                private dateHelperService: DateHelperService,
-                private datePipe: DatePipe) { }
+        private dateHelperService: DateHelperService,
+        private datePipe: DatePipe,
+        private domSanitizer: DomSanitizer) { }
 
     ngOnInit() {
         this.getEpisodes();
@@ -28,12 +30,16 @@ export class EpisodeListComponent implements OnInit {
     }
 
     getFormattedDate(date: Date) {
-        if (this.dateHelperService.isToday(date)){
+        if (this.dateHelperService.isToday(date)) {
             return 'today';
         } else if (this.dateHelperService.isYesterday(date)) {
             return 'yesterday';
         } else {
             return this.datePipe.transform(date, 'MMM d');
         }
+    }
+
+    sanitize(linkUrl: string) {
+        return this.domSanitizer.bypassSecurityTrustUrl(linkUrl)
     }
 }
