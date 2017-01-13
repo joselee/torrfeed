@@ -17,11 +17,16 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { EpisodeListComponent } from './episode/episode-list.component';
 import { ShowListComponent } from './show/show-list.component';
+import { ShowDetailComponent } from './show/detail/show-detail.component';
 
 const appRoutes: Routes = [
     {
         path: 'episodes',
         component: EpisodeListComponent
+    },
+    {
+        path: 'shows/:id',
+        component: ShowDetailComponent
     },
     {
         path: 'shows',
@@ -50,7 +55,8 @@ const appRoutes: Routes = [
         AppComponent,
         MenuComponent,
         EpisodeListComponent,
-        ShowListComponent
+        ShowListComponent,
+        ShowDetailComponent
     ],
     providers: [
         EpisodeService,

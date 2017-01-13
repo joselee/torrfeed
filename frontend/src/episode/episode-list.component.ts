@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, Input, HostBinding, OnInit } from '@angular/core';
 import { Episode, EpisodeService } from './episode.service';
 import { DateHelperService } from '../shared/date-helper.service';
 
@@ -9,14 +9,16 @@ import { DateHelperService } from '../shared/date-helper.service';
     templateUrl: 'episode-list.component.html'
 })
 export class EpisodeListComponent implements OnInit {
-    episodes: Episode[];
+    @Input() episodes: Episode[];
     constructor(private episodeService: EpisodeService,
         private dateHelperService: DateHelperService,
         private datePipe: DatePipe,
         private domSanitizer: DomSanitizer) { }
 
     ngOnInit() {
-        this.getEpisodes();
+        if (!this.episodes){
+            this.getEpisodes();
+        }
     }
 
     getEpisodes() {

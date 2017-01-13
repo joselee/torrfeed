@@ -7,7 +7,9 @@
 </div>
 <div class="show-list">
     <div class="show-list-item list-item-card" *ngFor="let show of shows">
-        <div class="list-item-title">{{show.name}}</div>
+        <div class="list-item-title">
+            <a routerLink="/shows/{{show['_id']}}">{{show.name}}</a>
+        </div>
         <button class="remove-button" (click)="deleteShow(show)">
             <i class="fa fa-remove"></i>
         </button>

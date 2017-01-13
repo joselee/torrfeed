@@ -1,4 +1,4 @@
-<div class="episode-list">
+<div class="episode-list" *ngIf="episodes">
     <div class="episode-list-item" *ngFor="let episode of episodes">
         <span class="episode-date">{{getFormattedDate(episode.date)}}</span>
         <div class="list-item-card">

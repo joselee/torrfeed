@@ -1,0 +1,4 @@
+<div class="show-details">
+    <h3 class="show-details-title" *ngIf="show">{{show.name}}</h3>
+    <episode-list [episodes]="episodes" *ngIf="episodes"></episode-list>
+</div>

@@ -26,6 +26,18 @@ app.get('/api/shows', (req, res) => {
     })
 });
 
+app.post('/api/showdetails', (req, res) => {
+    if (!req.body.id) {
+        res.send('Error: id parameter missing.');
+        return;
+    }
+
+    const id = monk.id(req.body.id);
+    db.episodesCollection.find({ 'show._id': id }).then((episodes) => {
+        res.json(episodes);
+    })
+});
+
 app.get('/api/fetch', (req, res) => {
     fetch();
     res.send('Feeds updated.');
@@ -64,9 +76,9 @@ app.post('/api/deleteshow', (req, res) => {
             { 'show._id': id },
             { $set: { archived: true } },
             { multi: true })
-        .then(() => {
-            res.send('Show removed, all episode data removed.');
-        });
+            .then(() => {
+                res.send('Show removed, all episode data removed.');
+            });
     });
 });
 

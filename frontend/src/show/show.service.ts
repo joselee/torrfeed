@@ -1,3 +1,4 @@
+import { Episode } from '../episode/episode.service';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -19,6 +20,25 @@ export class ShowService {
                 let shows = <Show[]>response.json();
                 shows = _.sortBy(shows, (s) => s.name);
                 return shows;
+            })
+            .catch(this.handleError);
+    }
+
+    getShow(id: string) {
+        return this.getShows()
+            .map(shows => {
+                return shows.find(show => show['_id'] === id);
+            });
+    }
+
+    getShowEpisodes(id: string) {
+        return this.http
+            .post('/api/showdetails', { id: id })
+            .map((response: Response) => {
+                let episodes = <Episode[]>response.json();
+                episodes.forEach((e) => e.date = new Date(e.date));
+                episodes = _.sortBy(episodes, (e) => -e.date);
+                return episodes;
             })
             .catch(this.handleError);
     }
