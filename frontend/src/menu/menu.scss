@@ -12,13 +12,16 @@ top-menu {
     }
 }
 
-.main-title {
-    display: block;
+.main-title-container {
     flex: 1;
+}
+
+.main-title {
+    display: inline-block;
     margin: 0;
     font-family: 'Dosis', sans-serif;
     font-weight: 300;
-    font-size: 3.5em;
+    font-size: 40px;
     color: rgba(0, 0, 0, 0.25);
     &:hover, &:active, &:focus {
         color: rgba(0, 0, 0, 0.33);
@@ -31,7 +34,7 @@ top-menu {
     }
 
     @media (max-width: 600px) {
-        font-size: 2.5em;
+        font-size: 30px;
     }
 }
 
@@ -39,6 +42,7 @@ top-menu {
     display: inline-block;
     padding: 10px 15px;
     font-weight: lighter;
+    border-bottom: solid 2px transparent;
 
     &.active {
         border-bottom: solid 2px $accent-color;
@@ -53,7 +57,7 @@ top-menu {
     .top-menu .container {
         flex-wrap: wrap;
     }
-    .main-title, .navigation-links-container {
+    .main-title-container, .navigation-links-container {
         width: 100%;
         text-align: center;
     }

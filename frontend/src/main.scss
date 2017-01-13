@@ -17,6 +17,10 @@ body {
     color: $black;
 }
 
+button, input, optgroup, select, textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
 .container {
     position: relative;
 }
@@ -50,26 +54,39 @@ body {
 
     .list-item-title {
         flex: 1;
-    }
-
-    .remove-button {
-        transition: all 0.25s ease-in-out;
-        &:hover {
-            cursor: pointer;
-            background-color: $accent-color;
-            color: white;
-        }
-        &:active {
-            background-color: $accent-color-dark;
-            color: white;
+        @media (max-width: 600px) {
+            font-size: 0.8em;
         }
     }
 }
 
+.remove-button {
+    appearance: none;
+    align-self: flex-start;
+    margin-left: 10px;
+    color: #ccc;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        background-color: $accent-color;
+        color: white;
+    }
+    &:active {
+        background-color: $accent-color-dark;
+        color: white;
+    }
+}
+
 a {
-    color: $accent-color;
-    &:hover, &:active, &:focus {
-        color: $accent-color-dark;
-        text-decoration: none;
+    color: $black;
+    text-decoration: none !important;
+    &:hover, &:active {
+        color: $accent-color;
+    }
+    &:focus {
+        color: $black;
     }
 }

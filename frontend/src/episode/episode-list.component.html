@@ -1,8 +1,8 @@
 <div class="episode-list">
     <div class="episode-list-item list-item-card" *ngFor="let episode of episodes">
         <div class="list-item-title">{{episode.title}}</div>
-        <button class="btn remove-button" (click)="archiveEpisode(episode)">
-            <i class="fa fa-trash-o"></i>
+        <button class="remove-button" (click)="archiveEpisode(episode)">
+            <i class="fa fa-remove"></i>
         </button>
     </div>
 </div>
