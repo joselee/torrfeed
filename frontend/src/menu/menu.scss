@@ -1,7 +1,7 @@
 top-menu {
     display: block;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+    box-shadow: 2px 2px 3px $gray-dark;
 }
 .top-menu {
     background-color: white;
@@ -22,9 +22,9 @@ top-menu {
     font-family: 'Dosis', sans-serif;
     font-weight: 300;
     font-size: 40px;
-    color: rgba(0, 0, 0, 0.25);
+    color: $gray-light;
     &:hover, &:active, &:focus {
-        color: rgba(0, 0, 0, 0.33);
+        color: $accent-color;
         text-decoration: none;
     }
 

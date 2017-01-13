@@ -1,3 +1,53 @@
 episode-list {
     display: block;
 }
+
+.episode-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .list-item-card {
+        flex: 1;
+        margin: 15px 0;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 50%;
+        left: 32.5px;
+        border-right: solid 1px $gray-light;
+        z-index: 0;
+
+        &:first-child {
+            display: none;
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 32.5px;
+        border-right: solid 1px $gray-light;
+        z-index: 0;
+    }
+    &:first-child:before, &:last-child:after {
+        display: none;
+    }
+}
+
+.episode-date {
+    position: relative;
+    width: 65px;
+    margin-right: 10px;
+    padding: 6px 0;
+    background-color: $gray-lighter;
+    color: $gray-dark;
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+}

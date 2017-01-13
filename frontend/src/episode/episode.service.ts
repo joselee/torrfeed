@@ -23,7 +23,11 @@ export class EpisodeService {
     getEpisodes() {
         return this.http
             .get('/api/episodes')
-            .map((response: Response) => <Episode[]>response.json())
+            .map((response: Response) => {
+                let episodes: Episode[] = <Episode[]>response.json();
+                episodes.forEach((e) => e.date = new Date(e.date));
+                return episodes
+            })
             .catch(this.handleError);
     }
 

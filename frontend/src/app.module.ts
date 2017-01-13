@@ -11,6 +11,8 @@ import { EpisodeListComponent } from './episode/episode-list.component';
 import { EpisodeService } from './episode/episode.service';
 import { ShowListComponent } from './show/show-list.component';
 import { ShowService } from './show/show.service';
+import { DateHelperService } from './shared/date-helper.service';
+import { DatePipe } from '@angular/common';
 
 const appRoutes: Routes = [
     {
@@ -48,7 +50,9 @@ const appRoutes: Routes = [
     ],
     providers: [
         EpisodeService,
-        ShowService
+        ShowService,
+        DateHelperService,
+        DatePipe
     ],
     bootstrap: [AppComponent]
 })
