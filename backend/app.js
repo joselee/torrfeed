@@ -21,8 +21,10 @@ app.get('/*', (req, res) => {
     res.sendFile(frontendPath + 'index.html');
 });
 
-app.listen(3000, () => {
-    console.log('Torrent-FeedReader started on port 3000.')
-});
+let port = PRODUCTION ? 80 : 3000;
+let bootMessage = PRODUCTION ? 'Running in production mode.' : 'Running in dev mode.';
+console.log(bootMessage);
 
-console.log(process.env.NODE_ENV === 'production');
+app.listen(port, () => {
+    console.log(`Torrent-FeedReader started on port ${port}.`)
+});
