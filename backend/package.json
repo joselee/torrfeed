@@ -2,12 +2,14 @@
   "name": "torrfeed-backend",
   "version": "1.0.0",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "prod": "cross-env NODE_ENV=production node app"
   },
   "author": "Jose Lee",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cross-env": "^3.1.4",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "lodash": "^4.17.2",
