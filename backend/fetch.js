@@ -9,9 +9,11 @@ let fetch = () => {
     _.each(feeds, (feed) => {
         request(feed.url, (error, response, body) => {
             if (error) {
-                throw new Error(error);
+                console.log(`fetching ${feed.url} failed`, error);
+                return;
             }
 
+            console.log(`fetched ${feed.url} successfully`);
             let json = JSON.parse(parser.toJson(body));
             let allEpisodes = json.rss.channel.item;
 
@@ -21,7 +23,7 @@ let fetch = () => {
                     if (show) {
                         let parsedEp = feed.parseData(ep, show);
                         db.episodesCollection.update(
-                            { id: parsedEp.id },
+                            { id: parsedEp.id, archived: false },
                             { $set: parsedEp },
                             { upsert: true, new: true })
                         .catch((err) => {
