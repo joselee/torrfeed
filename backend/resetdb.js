@@ -11,7 +11,7 @@ const list = [
     { name: 'black mirror' },
     { name: 'lucifer' },
     { name: 'frequency' },
-    { name: 'one piece' },
+    { name: 'naruto' },
     { name: 'haikyuu' },
     { name: 'natsume yuujinchou' }
 ];
