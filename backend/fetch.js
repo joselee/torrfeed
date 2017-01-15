@@ -26,6 +26,9 @@ let fetch = () => {
                             { id: parsedEp.id, archived: false },
                             { $set: parsedEp },
                             { upsert: true, new: true })
+                        .then(() => {
+                            console.log(`Added episode ${parsedEp.title}`);
+                        })
                         .catch((err) => {
                             console.log(err);
                         });
