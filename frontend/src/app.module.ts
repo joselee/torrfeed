@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 // Services
+import { MenuService } from './menu/menu.service';
 import { DatePipe } from '@angular/common';
 import { EpisodeService } from './episode/episode.service';
 import { ShowService } from './show/show.service';
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
         ShowDetailComponent
     ],
     providers: [
+        MenuService,
         EpisodeService,
         ShowService,
         DateHelperService,

@@ -8,6 +8,14 @@
         <div class="navigation-links-container">
             <a class="navigation-link" routerLink="/episodes" routerLinkActive="active">Episodes</a>
             <a class="navigation-link" routerLink="/shows" routerLinkActive="active">Shows</a>
+            <div ngbDropdown class="main-menu">
+                <button class="menu-button" ngbDropdownToggle>
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item" (click)="triggerFetch()">Fetch</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

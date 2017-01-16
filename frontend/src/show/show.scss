@@ -2,8 +2,18 @@ show-list {
     display: block;
 }
 
+.show-list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
 .show-details-title {
     display: block;
     margin-left: 75px;
     color: $gray-dark;
+    text-transform: capitalize;
+
+    &.no-indent {
+        margin-left: 0;
+    }
 }

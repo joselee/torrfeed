@@ -10,6 +10,18 @@ top-menu {
         display: flex;
         align-items: flex-end;
     }
+
+    .main-menu {
+        display: inline-block;
+        margin-right: 10px;
+
+        .menu-button {
+            @extend .custom-button;
+        }
+        .menu-button:after {
+            display: none;
+        }
+    }
 }
 
 .main-title-container {

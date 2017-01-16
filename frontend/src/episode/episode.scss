@@ -44,7 +44,8 @@ episode-list {
     margin: 3px 0 10px 0;
     font-size: 13px;
     font-weight: lighter;
-    color: #999;
+    color: $gray-dark;
+    text-transform: capitalize;
 }
 
 .episode-date {
@@ -58,8 +59,19 @@ episode-list {
     text-align: center;
     text-transform: uppercase;
     z-index: 1;
+
+    &:empty {
+        padding: 0;
+    }
 }
 
 .episode-magnet-link {
     margin-left: 10px;
+}
+
+.no-episodes-message {
+    padding-top: 15px;
+    color: $gray-dark;
+    font-style: italic;
+    font-weight: 100;
 }

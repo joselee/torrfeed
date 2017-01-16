@@ -4,6 +4,7 @@ let parser = require('xml2json');
 let monk = require('monk');
 let db = require('./db');
 let feeds = require('./feeds');
+var fs = require('fs');
 
 let fetch = () => {
     db.showsCollection.find().then((allShows) => {

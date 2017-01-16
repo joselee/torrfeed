@@ -10,6 +10,8 @@ import { DateHelperService } from '../shared/date-helper.service';
 })
 export class EpisodeListComponent implements OnInit {
     @Input() episodes: Episode[];
+    lastRenderedDate: string;
+
     constructor(private episodeService: EpisodeService,
         private dateHelperService: DateHelperService,
         private datePipe: DatePipe,
@@ -32,12 +34,20 @@ export class EpisodeListComponent implements OnInit {
     }
 
     getFormattedDate(date: Date) {
+        let result;
         if (this.dateHelperService.isToday(date)) {
-            return 'today';
+            result = 'today';
         } else if (this.dateHelperService.isYesterday(date)) {
-            return 'yesterday';
+            result = 'yesterday';
         } else {
-            return this.datePipe.transform(date, 'MMM d');
+            result = this.datePipe.transform(date, 'MMM d');
+        }
+
+        if (this.lastRenderedDate === result) {
+            return null;
+        } else {
+            this.lastRenderedDate = result;
+            return result;
         }
     }
 

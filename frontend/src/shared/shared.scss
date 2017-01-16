@@ -62,12 +62,8 @@ a {
     }
 }
 
-.remove-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.custom-button {
     appearance: none;
-    align-self: flex-start;
     color: $gray-light;
     background: none;
     border: none;
@@ -82,4 +78,12 @@ a {
         background-color: $accent-color-dark;
         color: white;
     }
+}
+
+.remove-button {
+    @extend .custom-button;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    align-self: flex-start;
 }
